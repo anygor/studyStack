@@ -1,3 +1,5 @@
+package Stack;
+
 public class Stack<T> {
     private Element<T> top;
     private int size = 0;
@@ -16,14 +18,14 @@ public class Stack<T> {
         size++;
     }
 
-    T peek(){
+    public T peek(){
         if(isNotEmpty()) {
             return top.getValue();
         }
         else return null;
     }
 
-    T pop(){
+    public T pop(){
         if (isNotEmpty()){
             T tmpValue = top.getValue();
             top = top.getPrev();
@@ -33,7 +35,7 @@ public class Stack<T> {
         else return null;
     }
 
-    void clear(){
+    public void clear(){
         while(isNotEmpty()){
             pop();
         }

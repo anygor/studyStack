@@ -1,3 +1,5 @@
+package Stack;
+
 public class Main {
     public static void main(String[] args){
         Stack<Double> stack = new Stack<Double>();

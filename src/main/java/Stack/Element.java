@@ -1,3 +1,5 @@
+package Stack;
+
 public class Element<T> {
     private T value;
     private Element<T> prev;
