@@ -1,13 +1,12 @@
 package Stack;
 
-import java.io.*;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
-        Stack<Integer> stack = new Stack<Integer>();   // Type is changed here
+        Stack<String> stack = new Stack<String>();   // Type is changed here
         String command;
-        int insert;
+        String insert;
 
         Scanner scanner = new Scanner(System.in);
 
@@ -28,8 +27,8 @@ public class Main {
                     break;
                 }
                 case "push": {
-                    System.out.println("Digit a number, you want to push:");
-                    insert = scanner.nextInt();
+                    System.out.println("Digit a value, you want to push:");
+                    insert = scanner.nextLine();
                     scanner = new Scanner(System.in);
                     stack.push(insert);
                     System.out.println("Pushed " + " to your stack");
@@ -43,12 +42,19 @@ public class Main {
                     System.out.println("Your removed " + stack.pop() + " from your stack");
                     break;
                 }
+                case "clear":{
+                    stack.clear();
+                    System.out.println("Cleared the stack");
+                    break;
+                }
                 case "takeFromFile":{
-                    stack.takeFromFile();
+                    new StackHelper().takeFromFile(stack);
                     break;
                 }
                 case "putToFile":{
-                    stack.putToFile();
+                    new StackHelper().putToFile(stack);
+                    stack.clear();
+                    break;
                 }
                 case "quit":{
                     System.out.println("Fare thee well");

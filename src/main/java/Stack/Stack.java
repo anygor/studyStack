@@ -1,16 +1,11 @@
 package Stack;
 
-import java.io.*;
-
 public class Stack<T> {
     private Element<T> top;
     private int size = 0;
 
 
-    BufferedReader in;
-    BufferedWriter out;
-
-    private boolean isNotEmpty(){
+    boolean isNotEmpty(){
         return size != 0;
     }
 
@@ -48,34 +43,16 @@ public class Stack<T> {
         }
     }
 
-    public void takeFromFile(){
+    public Stack<String> stackWithStringElements(){
+        Stack<String> tmpStack = new Stack<String>();
         try {
-            in = new BufferedReader(new FileReader("src/main/resources/data.txt"));
-            String buffer;
-            while((buffer = in.readLine()) != null)
-                this.push((T) buffer);
-        }
-        catch(FileNotFoundException e){
-            e.printStackTrace();
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
-    }
-
-    public void putToFile(){
-        try{
-            out = new BufferedWriter(new PrintWriter(new FileOutputStream("src/main/resources/data.txt", false)));
-            while(this.isNotEmpty()){
-                out.write((String)this.pop());
-                out.flush();
+            while (this.isNotEmpty()) {
+                tmpStack.push((this.pop()).toString());
             }
         }
-        catch(FileNotFoundException e){
-            e.printStackTrace();
+        catch (Throwable e){
+            System.out.println("elements to string exception");
         }
-        catch (IOException e){
-            e.printStackTrace();
-        }
+        return tmpStack;
     }
 }
