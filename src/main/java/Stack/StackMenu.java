@@ -2,8 +2,8 @@ package Stack;
 
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args){
+public class StackMenu {
+    public static void menu(){
         Stack<String> stack = new Stack<String>();   // Type is changed here
         String command;
         String insert;
