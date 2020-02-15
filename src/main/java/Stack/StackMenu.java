@@ -68,6 +68,10 @@ public class StackMenu {
                     new StackHelper().changeElement(stack, element, value);
                     break;
                 }
+                case "printStack" : {
+                    new StackHelper().printStack(stack);
+                    break;
+                }
                 case "takeFromFile":{
                     new StackHelper().takeFromFile(stack);
                     break;

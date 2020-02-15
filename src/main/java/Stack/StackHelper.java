@@ -73,4 +73,23 @@ public class StackHelper {
             }
         }
     }
+
+    public void printStack(Stack<String> stack){
+        if(stack.isNotEmpty()){
+            Stack<String> tmpStack = new Stack<String>();
+            while(stack.isNotEmpty()){
+                tmpStack.push(stack.pop());
+            }
+            String element;
+            while(tmpStack.isNotEmpty()){
+                element = tmpStack.pop();
+                System.out.print(element + ' ');
+                stack.push(element);
+            }
+            System.out.println("");
+        }
+        else{
+            System.out.println("Stack is empty");
+        }
+    }
 }
