@@ -77,6 +77,7 @@ public class StackHelper {
     public void printStack(Stack<String> stack){
         if(stack.isNotEmpty()){
             Stack<String> tmpStack = new Stack<String>();
+            System.out.print("Bot -> ");
             while(stack.isNotEmpty()){
                 tmpStack.push(stack.pop());
             }
@@ -86,10 +87,35 @@ public class StackHelper {
                 System.out.print(element + ' ');
                 stack.push(element);
             }
-            System.out.println("");
+            System.out.println(" <- Top");
         }
         else{
             System.out.println("Stack is empty");
+        }
+    }
+
+    public double maxElement(Stack<String> stack){
+        if(stack.isNotEmpty()){
+            Stack<String> tmpStack = new Stack<String>();
+            String top = stack.pop();
+            tmpStack.push(top);
+            double max = Double.parseDouble(top);
+            while(stack.isNotEmpty()){
+                top = stack.pop();
+                tmpStack.push(top);
+                double tmp = Double.parseDouble(top);
+                if(tmp > max){
+                    max = tmp;
+                }
+            }
+            while(tmpStack.isNotEmpty()){
+                stack.push(tmpStack.pop());
+            }
+            return max;
+        }
+        else {
+            System.out.println("Stack is empty");
+            return 0;
         }
     }
 }

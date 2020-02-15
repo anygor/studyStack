@@ -72,6 +72,11 @@ public class StackMenu {
                     new StackHelper().printStack(stack);
                     break;
                 }
+                case "findMaxElement" : {
+                    System.out.print("Max element: ");
+                    System.out.println(new StackHelper().maxElement(stack));
+                    break;
+                }
                 case "takeFromFile":{
                     new StackHelper().takeFromFile(stack);
                     break;
