@@ -54,4 +54,23 @@ public class StackHelper {
         }
         return false;
     }
+
+    public void changeElement(Stack<String> stack, String element, String value){
+        if(!isElementInStack(stack, element)) {
+            System.out.println("There is no such element in stack");
+        }
+        else {
+            Stack<String> tmpStack = new Stack<String>();
+            String tmpElement = stack.peek();
+            while(stack.isNotEmpty() && !tmpElement.equals(element)) {
+                tmpStack.push(stack.pop());
+                tmpElement = tmpStack.peek();
+            }
+            tmpStack.pop();
+            stack.push(value);
+            while(tmpStack.isNotEmpty()) {
+                stack.push(tmpStack.pop());
+            }
+        }
+    }
 }

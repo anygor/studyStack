@@ -31,7 +31,7 @@ public class StackMenu {
                     executableString = scanner.nextLine();
                     scanner = new Scanner(System.in);
                     stack.push(executableString);
-                    System.out.println("Pushed " + " to your stack");
+                    System.out.println("Pushed " + executableString + " to your stack");
                     break;
                 }
                 case "peek": {
@@ -56,6 +56,16 @@ public class StackMenu {
                         System.out.println("Element is in stack");
                     }
                     else System.out.println("No such element in stack");
+                    break;
+                }
+                case "changeElement" : {
+                    System.out.println("Digit an element you want to change");
+                    executableString = scanner.nextLine();
+                    String element = executableString;
+                    System.out.println("Digit the new value of this element");
+                    executableString = scanner.nextLine();
+                    String value = executableString;
+                    new StackHelper().changeElement(stack, element, value);
                     break;
                 }
                 case "takeFromFile":{
