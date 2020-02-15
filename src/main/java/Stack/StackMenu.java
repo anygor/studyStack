@@ -77,6 +77,16 @@ public class StackMenu {
                     System.out.println(new StackHelper().maxElement(stack));
                     break;
                 }
+                case "findMinElement" : {
+                    System.out.print("Min element: ");
+                    System.out.println(new StackHelper().minElement(stack));
+                    break;
+                }
+                case "sumOfElements" : {
+                    System.out.println("Sum of elements: ");
+                    System.out.println(new StackHelper().sumOfElements(stack));
+                    break;
+                }
                 case "takeFromFile":{
                     new StackHelper().takeFromFile(stack);
                     break;

@@ -100,10 +100,11 @@ public class StackHelper {
             String top = stack.pop();
             tmpStack.push(top);
             double max = Double.parseDouble(top);
+            double tmp;
             while(stack.isNotEmpty()){
                 top = stack.pop();
                 tmpStack.push(top);
-                double tmp = Double.parseDouble(top);
+                tmp = Double.parseDouble(top);
                 if(tmp > max){
                     max = tmp;
                 }
@@ -114,6 +115,53 @@ public class StackHelper {
             return max;
         }
         else {
+            System.out.println("Stack is empty");
+            return 0;
+        }
+    }
+
+    public double minElement(Stack<String> stack){
+        if(stack.isNotEmpty()){
+            Stack<String> tmpStack = new Stack<String>();
+            String top = stack.pop();
+            tmpStack.push(top);
+            double min = Double.parseDouble(top);
+            double tmp;
+            while (stack.isNotEmpty()){
+                top = stack.pop();
+                tmpStack.push(top);
+                tmp = Double.parseDouble(top);
+                if(tmp < min){
+                    min = tmp;
+                }
+            }
+            while(tmpStack.isNotEmpty()){
+                stack.push(tmpStack.pop());
+            }
+            return min;
+        }
+        else{
+            System.out.println("Stack is empty");
+            return 0;
+        }
+    }
+
+    public double sumOfElements(Stack<String> stack){
+        if(stack.isNotEmpty()){
+            Stack<String> tmpStack = new Stack<String>();
+            String top;
+            double sum = 0;
+            while(stack.isNotEmpty()){
+                top = stack.pop();
+                tmpStack.push(top);
+                sum += Double.parseDouble(top);
+            }
+            while(tmpStack.isNotEmpty()){
+                stack.push(tmpStack.pop());
+            }
+            return sum;
+        }
+        else{
             System.out.println("Stack is empty");
             return 0;
         }
