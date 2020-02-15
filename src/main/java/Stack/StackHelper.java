@@ -22,21 +22,36 @@ public class StackHelper {
         }
     }
 
-    public void putToFile(Stack<String> stack){
-        try{
+    public void putToFile(Stack<String> stack) {
+        try {
             out = new BufferedWriter(new PrintWriter(new FileOutputStream("src/main/resources/data.txt", false)));
-            while(stack.isNotEmpty()){
+            while (stack.isNotEmpty()) {
                 out.write(stack.pop());
                 out.flush();
                 out.write("\n");
                 out.flush();
             }
-        }
-        catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        catch (IOException e){
-            e.printStackTrace();
+    }
+
+    public boolean isElementInStack(Stack<String> stack, String element){
+        Stack<String> tmpStack = new Stack<String>();
+        while(stack.isNotEmpty()){
+            tmpStack.push(stack.pop());
+            if (tmpStack.peek().equals(element)){
+                while(tmpStack.isNotEmpty()){
+                    stack.push(tmpStack.pop());
+                }
+                return true;
+            }
         }
+        while(tmpStack.isNotEmpty()){
+            stack.push(tmpStack.pop());
+        }
+        return false;
     }
 }

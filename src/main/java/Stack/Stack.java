@@ -51,7 +51,7 @@ public class Stack<T> {
             }
         }
         catch (Throwable e){
-            System.out.println("elements to string exception");
+            System.out.println("elements to string exception" + e);
         }
         return tmpStack;
     }

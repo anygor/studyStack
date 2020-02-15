@@ -6,7 +6,7 @@ public class StackMenu {
     public static void menu(){
         Stack<String> stack = new Stack<String>();   // Type is changed here
         String command;
-        String insert;
+        String executableString;
 
         Scanner scanner = new Scanner(System.in);
 
@@ -28,9 +28,9 @@ public class StackMenu {
                 }
                 case "push": {
                     System.out.println("Digit a value, you want to push:");
-                    insert = scanner.nextLine();
+                    executableString = scanner.nextLine();
                     scanner = new Scanner(System.in);
-                    stack.push(insert);
+                    stack.push(executableString);
                     System.out.println("Pushed " + " to your stack");
                     break;
                 }
@@ -45,6 +45,17 @@ public class StackMenu {
                 case "clear":{
                     stack.clear();
                     System.out.println("Cleared the stack");
+                    break;
+                }
+                case "isElementInStack" : {
+                    System.out.println("Digit an element you want to check:");
+                    executableString = scanner.nextLine();
+                    scanner = new Scanner(System.in);
+                    boolean found = new StackHelper().isElementInStack(stack, executableString);
+                    if (found){
+                        System.out.println("Element is in stack");
+                    }
+                    else System.out.println("No such element in stack");
                     break;
                 }
                 case "takeFromFile":{
