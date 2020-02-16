@@ -24,6 +24,13 @@ public class StackMenu {
                     System.out.println("peek - to look at the top for your stack");
                     System.out.println("pop - to return and remove top of your stack");
                     System.out.println("takeFromFile - get numbers from data file to your stack");
+                    System.out.println("putToFile - export stack to file");
+                    System.out.println("clear - clear stack");
+                    System.out.println("isElementInStack - check if element is in stack");
+                    System.out.println("changeElement - change element by its value");
+                    System.out.println("printStack - to see elements from bot to top");
+                    System.out.println("findMaxElement/findMinElement - returns max/min value");
+                    System.out.println("sumOfElements - returns sum of values in stack");
                     break;
                 }
                 case "push": {

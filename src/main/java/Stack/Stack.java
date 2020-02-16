@@ -13,7 +13,7 @@ public class Stack<T> {
         top = new Element<T>();
     }
 
-    void push(T value){
+    public void push(T value){
         Element<T> tmp = new Element<>(value); // generified
         tmp.setPrev(top);
         top = tmp;
