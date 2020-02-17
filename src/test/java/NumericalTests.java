@@ -41,4 +41,30 @@ public class NumericalTests {
         actualDouble = new StackHelper().sumOfElements(stack);
         assertEquals(expectedDouble, actualDouble, 0);
     }
+
+    @Test
+    public void changeElementTest(){
+        Stack<String> stack = new Stack<String>();
+        Double[] arr = new Double[5];
+        Double[] eqArr = new Double[5];
+        for (int i = 0; i < 5; i++) {
+            eqArr[i] = (double) i + 1;
+            stack.push(eqArr[i].toString());
+        }
+        new StackHelper().changeElement(stack, "3.0", "10.0");
+        eqArr[2] = 10.0;
+        for (int i = 4; i >= 0; i--){
+            arr[i] = Double.parseDouble(stack.pop());
+        }
+        assertArrayEquals(arr, eqArr);
+    }
+
+    @Test
+    public void isElementInStackTest(){
+        Stack<String> stack = new Stack<String>();
+        stack.push("15");
+        boolean right = new StackHelper().isElementInStack(stack, "15");
+        boolean wrong = new StackHelper().isElementInStack(stack, "15.0");
+        assertEquals(right, !wrong);
+    }
 }
