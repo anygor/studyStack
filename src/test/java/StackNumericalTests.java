@@ -4,7 +4,7 @@ import Stack.*;
 
 import static org.junit.Assert.*;
 
-public class NumericalTests {
+public class StackNumericalTests {
     private double expectedDouble;
     private double actualDouble;
 
