@@ -35,8 +35,20 @@ public class Queue<T> {
             T value = tail.getValue();
             tail = tail.getPrev();
             size--;
+            if (size == 0) head = null;
             return value;
         }
         else return null;
+    }
+
+    public T peek(){
+        if(isNotEmpty()){
+            return tail.getValue();
+        }
+        else return null;
+    }
+
+    public void clear(){
+        while(isNotEmpty()) pop();
     }
 }

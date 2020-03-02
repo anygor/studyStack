@@ -24,4 +24,22 @@ public class QueueInsertionTests {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void fileInsertionTest(){
+        Queue<String> queue = new Queue<String>();
+
+        queue.add("red");
+        queue.add("orange");
+        queue.add("yellow");
+        queue.add("green");
+        queue.add("blue");
+        queue.add("indigo");
+        queue.add("purple");
+
+        new QueueHelper().putToFile(queue);
+        Queue<String> returnable = new Queue<String>();
+        new QueueHelper().takeFromFile(returnable);
+        assertEquals("red", returnable.peek());
+    }
 }

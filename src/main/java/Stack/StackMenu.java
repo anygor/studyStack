@@ -11,7 +11,7 @@ public class StackMenu {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("This is your stack-management tool");
-        System.out.println("Type help to see avaliable commands");
+        System.out.println("Type help to see available commands");
         System.out.println("Type quit to finish program");
 
         loop:
