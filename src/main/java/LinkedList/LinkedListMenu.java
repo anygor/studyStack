@@ -61,6 +61,20 @@ public class LinkedListMenu {
                     System.out.println("Success");
                     break;
                 }
+                case "popAtIndex" : {
+                    System.out.println("Type index");
+                    int index = scanner.nextInt();
+                    scanner = new Scanner(System.in);
+                    System.out.println("Removed element " + list.popAtIndex(index) + " from the list");
+                    break;
+                }
+                case "peekAtIndex" : {
+                    System.out.println("Type index");
+                    int index = scanner.nextInt();
+                    scanner = new Scanner(System.in);
+                    System.out.println("Element " + list.peekAtIndex(index) + " on position " + index);
+                    break;
+                }
                 case "peekFront" : {
                     System.out.println("Current head of list is " + list.peekFront());
                     break;

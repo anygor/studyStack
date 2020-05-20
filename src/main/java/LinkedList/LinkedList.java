@@ -45,7 +45,7 @@ public class LinkedList<T> {
     }
 
     public void pushAtIndex(T value, int index){
-        if (!isNotEmpty() || index == 0) {
+        if (!isNotEmpty() || index <= 0) {
             pushFront(value);
         }
         else if(index > size - 1) {
@@ -66,6 +66,53 @@ public class LinkedList<T> {
             newElement.getPrev().setNext(newElement);
             tmp.setNext(newElement);
             size++;
+        }
+    }
+
+    public T popAtIndex(int index){
+        if (!isNotEmpty()) {
+            System.out.println("List is empty");
+            return null;
+        }
+        else if (index <= 0){
+            return popFront();
+        }
+        else if (index >= size - 1) {
+            return popBack();
+        }
+        else {
+            Element<T> tmp = head;
+            int step = 0;
+            while (step < index) {
+                tmp = tmp.getNext();
+                step++;
+            }
+            tmp.getPrev().setNext(tmp.getNext());
+            tmp.getNext().setPrev(tmp.getPrev());
+            size--;
+            return tmp.getValue();
+        }
+    }
+
+    public T peekAtIndex(int index){
+        if (!isNotEmpty()) {
+            System.out.println("List is empty");
+            return null;
+        }
+        else if (index <= 0){
+            return peekFront();
+        }
+        else if (index >= size - 1) {
+            return peekBack();
+        }
+        else {
+            Element<T> tmp = head;
+            int step = 0;
+            while (step < index) {
+                tmp = tmp.getNext();
+                step++;
+            }
+            return tmp.getValue();
         }
     }
 
