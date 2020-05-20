@@ -1,5 +1,7 @@
 package LinkedList;
 
+import javax.script.ScriptContext;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class LinkedListMenu {
@@ -46,6 +48,17 @@ public class LinkedListMenu {
                     scanner = new Scanner(System.in);
                     list.pushBack(executableString);
                     System.out.println("Pushed " + executableString + " to the back of your list");
+                    break;
+                }
+                case "pushAtIndex" : {
+                    System.out.println("Type a value you want to push");
+                    executableString = scanner.nextLine();
+                    scanner = new Scanner(System.in);
+                    System.out.println("Type index");
+                    int index = scanner.nextInt();
+                    scanner = new Scanner(System.in);
+                    list.pushAtIndex(executableString, index);
+                    System.out.println("Success");
                     break;
                 }
                 case "peekFront" : {

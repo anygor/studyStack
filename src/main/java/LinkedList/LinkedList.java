@@ -44,6 +44,31 @@ public class LinkedList<T> {
         size++;
     }
 
+    public void pushAtIndex(T value, int index){
+        if (!isNotEmpty() || index == 0) {
+            pushFront(value);
+        }
+        else if(index > size - 1) {
+            System.out.println("List won't have this index, pushing to the end");
+            pushBack(value);
+        }
+        else {
+            Element<T> newElement = new Element<T>(value);
+            Element<T> tmp = head;
+            int step = 0;
+            while(step < index - 1) {
+                tmp = tmp.getNext();
+                step++;
+            }
+            newElement.setNext(tmp.getNext());
+            newElement.getNext().setPrev(newElement);
+            newElement.setPrev(tmp);
+            newElement.getPrev().setNext(newElement);
+            tmp.setNext(newElement);
+            size++;
+        }
+    }
+
     public T popBack(){
         if (isNotEmpty()) {
             T value = tail.getValue();
