@@ -66,6 +66,20 @@ public class LinkedList<T> {
         else return null;
     }
 
+    public T peekFront(){
+        if (isNotEmpty()) {
+            return head.getValue();
+        }
+        else return null;
+    }
+
+    public T peekBack(){
+        if(isNotEmpty()){
+            return tail.getValue();
+        }
+        else return null;
+    }
+
     public void clear() { while (isNotEmpty()) popBack(); }
 
 }
