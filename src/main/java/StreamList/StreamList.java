@@ -147,4 +147,48 @@ public class StreamList {
         }
     }
 
+    public void removeBySecondName(String name){
+        if(isEmpty()) System.out.println("List is empty");
+        else{
+            Element tmp = firstElement;
+            boolean found = false;
+            while(tmp != lastElement) {
+                if(tmp.secondName.getSecondName() == name){
+                    found = true;
+                    break;
+                }
+                else tmp = tmp.nextSecondName;
+            }
+            if(found){
+                removeElement(tmp);
+                System.out.println("Removed element successfully");
+            }
+            else {
+                System.out.println("Element not found");
+            }
+        }
+    }
+
+    public void removeByTelephoneNumber(long number){
+        if(isEmpty()) System.out.println("List is empty");
+        else{
+            Element tmp = firstElement;
+            boolean found = false;
+            while(tmp != lastElement) {
+                if(tmp.telephoneNumber.getNumber() == number){
+                    found = true;
+                    break;
+                }
+                else tmp = tmp.nextSecondName;
+            }
+            if(found){
+                removeElement(tmp);
+                System.out.println("Removed element successfully");
+            }
+            else {
+                System.out.println("Element not found");
+            }
+        }
+    }
+
 }
