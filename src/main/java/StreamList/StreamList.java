@@ -191,4 +191,38 @@ public class StreamList {
         }
     }
 
+    public void clear() {
+        if (!isEmpty()) {
+            Element tmp = firstElement;
+            Element nextElem;
+            while (tmp != lastElement) {
+                nextElem = tmp.nextSecondName;
+                removeElement(tmp);
+                tmp = nextElem;
+            }
+        }
+    }
+
+    public void printBySecondName(){
+        if(!isEmpty()){
+            Element tmp = firstElement;
+            System.out.println("By second name");
+            while (tmp != lastElement) {
+                System.out.println(tmp.secondName.getSecondName() + " - " + tmp.telephoneNumber.getNumber());
+                tmp = tmp.nextSecondName;
+            }
+        }
+    }
+
+    public void printByTelephoneNumber(){
+        if(!isEmpty()){
+            Element tmp = firstElement;
+            System.out.println("By telephone number");
+            while (tmp != lastElement) {
+                System.out.println(tmp.secondName.getSecondName() + " - " + tmp.telephoneNumber.getNumber());
+                tmp = tmp.nextTelephoneNumber;
+            }
+        }
+    }
+
 }
