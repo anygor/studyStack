@@ -26,11 +26,14 @@ public class LinkedListMenu {
                     System.out.println("pushBack - to add a certain value to the tail of list");
                     System.out.println("peekFront - to look at the head of list");
                     System.out.println("peekBack - to look at the tail of list");
-                    System.out.println("popFront - to return and remove the head of your queue");
-                    System.out.println("popBack - to return and remove the tail of your queue");
-                    System.out.println("takeFromFile - get values from data file to your queue");
-                    System.out.println("putToFile - export queue to file");
-                    System.out.println("clear - clear queue");
+                    System.out.println("popFront - to return and remove the head of your list");
+                    System.out.println("popBack - to return and remove the tail of your list");
+                    System.out.println("takeFromFile - get values from data file to your list");
+                    System.out.println("putToFile - export list to file");
+                    System.out.println("pushAtIndex - to add element at certain place");
+                    System.out.println("popAtIndex - to get element from certain place");
+                    System.out.println("peekAtIndex - to observe element at certain place");
+                    System.out.println("clear - clear list");
                     System.out.println("printQueue - to see elements from head to tail");
                     break;
                 }
