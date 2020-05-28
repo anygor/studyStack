@@ -80,6 +80,71 @@ public class StreamList {
         previousSecondNameElement.nextSecondName = nextSecondNameElement;
         nextSecondNameElement.previousSecondName = previousSecondNameElement;
 
+        size--;
+
         element = null; // java will free memory of this element with no pointers as soon as garbage collector will go for it
     }
+
+    public boolean isEmpty() {
+        return firstElement.telephoneNumber == null && firstElement.secondName == null;
+    }
+
+    public void addElement(String name, long number){
+        Element element = new Element(name, number);
+        if (isEmpty()) {
+            firstElement = element;
+        }
+        insertTelephoneNumber(element);
+        insertSecondName(element);
+        size++;
+    }
+
+    public Element findByTelephoneNumber(long number){
+        if (isEmpty()) {
+            System.out.println("List is empty");
+            return null;
+        }
+
+        Element tmp = firstElement;
+        boolean found = false;
+        while (tmp != lastElement){
+            if(tmp.telephoneNumber.getNumber() == number) {
+                found = true;
+                break;
+            }
+            else tmp = tmp.nextTelephoneNumber;
+        }
+        if (found) {
+            return tmp;
+        }
+        else {
+            System.out.println("No such element");
+            return null;
+        }
+    }
+
+    public Element findBySecondName(String name){
+        if (isEmpty()) {
+            System.out.println("List is empty");
+            return null;
+        }
+
+        Element tmp = firstElement;
+        boolean found = false;
+        while (tmp != lastElement){
+            if(tmp.secondName.getSecondName().equals(name)) {
+                found = true;
+                break;
+            }
+            else tmp = tmp.nextSecondName;
+        }
+        if (found) {
+            return tmp;
+        }
+        else {
+            System.out.println("No such element");
+            return null;
+        }
+    }
+
 }
