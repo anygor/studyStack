@@ -1,7 +1,7 @@
 package StreamList;
 
 public class SecondName {
-    String secondName;
+    private String secondName;
 
     public String getSecondName() {
         return secondName;

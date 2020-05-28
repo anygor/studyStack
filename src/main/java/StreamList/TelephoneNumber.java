@@ -1,7 +1,7 @@
 package StreamList;
 
 public class TelephoneNumber {
-    long number;
+    private long number;
 
     public long getNumber() {
         return number;
