@@ -66,4 +66,20 @@ public class StreamList {
         insertable.previousSecondName = tmp;
         lastElement = insertable;
     }
+
+    public void removeElement(Element element){
+        Element previousTelephoneElement = element.previousTelephoneNumber;
+        Element nextTelephoneElement = element.nextTelephoneNumber;
+
+        previousTelephoneElement.nextTelephoneNumber = nextTelephoneElement;
+        nextTelephoneElement.previousTelephoneNumber = previousTelephoneElement;
+
+        Element previousSecondNameElement = element.previousSecondName;
+        Element nextSecondNameElement = element.nextSecondName;
+
+        previousSecondNameElement.nextSecondName = nextSecondNameElement;
+        nextSecondNameElement.previousSecondName = previousSecondNameElement;
+
+        element = null; // java will free memory of this element with no pointers as soon as garbage collector will go for it
+    }
 }
