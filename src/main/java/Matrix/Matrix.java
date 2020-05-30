@@ -1,16 +1,17 @@
 package Matrix;
 
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Matrix {
     private int size;
-    private Vector<Integer>[] rows;
+    private ArrayList<Integer>[] rows;
 
     public Matrix(int size){
         this.size = size;
-        rows = new Vector[size];
+        rows = new ArrayList[size];
         for(int i = 0; i < size; i++) {
-            rows[i] = new Vector<>(size);
+            rows[i] = new ArrayList(Collections.nCopies(size, null));
         }
     }
 
@@ -33,8 +34,9 @@ public class Matrix {
         for(int i = 0; i < size; i++){
             System.out.print(i + ". ");
             for(int j = 0; j < size; j++){
-                System.out.println(rows[i].get(j) + " ");
+                System.out.print(rows[i].get(j) + " ");
             }
+            System.out.println("\n");
         }
     }
 }

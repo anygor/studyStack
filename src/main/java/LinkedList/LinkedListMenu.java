@@ -1,7 +1,5 @@
 package LinkedList;
 
-import javax.script.ScriptContext;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class LinkedListMenu {
