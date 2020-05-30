@@ -49,6 +49,19 @@ public class MatrixMenu {
                     System.out.println(matrix.get(x, y));
                     break;
                 }
+                case "reinitialize" : {
+                    System.out.println("Set the new size: ");
+                    int size = Integer.parseInt(scanner.nextLine());
+                    scanner = new Scanner(System.in);
+                    matrix = new Matrix(size);
+                    System.out.println("Reinitialized");
+                    break;
+                }
+                case "randomize": {
+                    matrix.randomize();
+                    System.out.println("Randomized");
+                    break;
+                }
                 case "print": {
                     matrix.printMatrix();
                     break;

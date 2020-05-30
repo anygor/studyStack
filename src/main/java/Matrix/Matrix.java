@@ -2,6 +2,7 @@ package Matrix;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 public class Matrix {
     private int size;
@@ -37,6 +38,14 @@ public class Matrix {
                 System.out.print(rows[i].get(j) + " ");
             }
             System.out.println("\n");
+        }
+    }
+
+    public void randomize(){
+        for(int i = 0; i < size; i++){
+            for(int j = 0; j < size; j++){
+                rows[i].add(j, new Random().nextInt(1001));
+            }
         }
     }
 }
