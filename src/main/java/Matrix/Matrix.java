@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Matrix {
     private int size;
-    private ArrayList<Integer>[] rows;
+    private ArrayList<Element>[] rows;
 
     public Matrix(int size){
         this.size = size;
@@ -20,7 +20,7 @@ public class Matrix {
         if (x < 0 || x >= size || y < 0 || y >= size) {
             System.out.println("Out of bounds");
         }
-        else rows[x].add(y, value);
+        else rows[x].add(y, new Element(x, y, value));
     }
 
     public Integer get(int x, int y){
@@ -28,7 +28,7 @@ public class Matrix {
             System.out.println("Out of bounds");
             return null;
         }
-        else return rows[x].get(y);
+        else return rows[x].get(y).getValue();
     }
 
     public void printMatrix(){
@@ -44,7 +44,7 @@ public class Matrix {
     public void randomize(){
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
-                rows[i].add(j, new Random().nextInt(1001));
+                rows[i].add(j, new Element(i, j, new Random().nextInt(1001)));
             }
         }
     }
