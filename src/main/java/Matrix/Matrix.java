@@ -48,4 +48,12 @@ public class Matrix {
             }
         }
     }
+
+    public void clear(){
+        for(int i = 0; i < size; i++){
+            for(int j = 0; j < size; j++){
+                rows[i].remove(j);
+            }
+        }
+    }
 }

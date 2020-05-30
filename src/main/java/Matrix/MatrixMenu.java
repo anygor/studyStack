@@ -20,8 +20,11 @@ public class MatrixMenu {
             command = scanner.nextLine();
             switch (command) {
                 case "help": {
-                    //todo
-                    System.out.println("tba");
+                    System.out.println("add - to set value at certain index");
+                    System.out.println("get - to get value at certain index");
+                    System.out.println("reinitialize - to reset matrix and change its size");
+                    System.out.println("randomize - to fill matrix with random numbers");
+                    System.out.println("clear - to delete all values from the matrix");
                     break;
                 }
                 case "add": {
@@ -64,6 +67,10 @@ public class MatrixMenu {
                 }
                 case "print": {
                     matrix.printMatrix();
+                    break;
+                }
+                case "clear":{
+                    matrix.clear();
                     break;
                 }
                 case "quit": {
