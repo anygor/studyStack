@@ -5,39 +5,48 @@ public class StreamList {
     Element lastElement;
     int size;
 
+    public StreamList(){
+        firstElement = null;
+        lastElement = null;
+        size = 0;
+    }
+
     public void insertTelephoneNumber(Element insertable){
-        Element tmp = firstElement.nextTelephoneNumber;
-        if (tmp.telephoneNumber.getNumber() > insertable.telephoneNumber.getNumber()) {
-            insertable.nextTelephoneNumber = tmp;
-            insertable.previousTelephoneNumber = firstElement;
-            tmp.previousTelephoneNumber = insertable;
-            firstElement.nextTelephoneNumber = insertable;
-        }
-        while (tmp.nextTelephoneNumber != lastElement) {
-            if (tmp.telephoneNumber.getNumber() > insertable.telephoneNumber.getNumber()){
+        if(!isEmpty()) {
+            Element tmp = firstElement;
+            if (tmp.telephoneNumber.getNumber() > insertable.telephoneNumber.getNumber()) {
+                insertable.nextTelephoneNumber = tmp;
+                tmp.previousTelephoneNumber = insertable;
+            }
+            while (tmp.nextTelephoneNumber != lastElement) {
+                if (tmp.telephoneNumber.getNumber() > insertable.telephoneNumber.getNumber()) {
+                    insertable.previousTelephoneNumber = tmp.previousTelephoneNumber;
+                    insertable.nextTelephoneNumber = tmp;
+                    tmp.previousTelephoneNumber.nextTelephoneNumber = insertable;
+                    tmp.nextTelephoneNumber.previousTelephoneNumber = insertable;
+                } else {
+                    tmp = tmp.nextTelephoneNumber;
+                }
+            }
+            if (tmp.telephoneNumber.getNumber() > insertable.telephoneNumber.getNumber()) {
                 insertable.previousTelephoneNumber = tmp.previousTelephoneNumber;
                 insertable.nextTelephoneNumber = tmp;
                 tmp.previousTelephoneNumber.nextTelephoneNumber = insertable;
                 tmp.nextTelephoneNumber.previousTelephoneNumber = insertable;
             }
-            else {
-                tmp = tmp.nextTelephoneNumber;
-            }
+            tmp.nextTelephoneNumber = insertable;
+            insertable.nextTelephoneNumber = lastElement;
+            insertable.previousTelephoneNumber = tmp;
+            lastElement = insertable;
         }
-        if (tmp.telephoneNumber.getNumber() > insertable.telephoneNumber.getNumber()){
-            insertable.previousTelephoneNumber = tmp.previousTelephoneNumber;
-            insertable.nextTelephoneNumber = tmp;
-            tmp.previousTelephoneNumber.nextTelephoneNumber = insertable;
-            tmp.nextTelephoneNumber.previousTelephoneNumber = insertable;
+        else{
+            firstElement = insertable;
+            lastElement = insertable;
         }
-        tmp.nextTelephoneNumber = insertable;
-        insertable.nextTelephoneNumber = lastElement;
-        insertable.previousTelephoneNumber = tmp;
-        lastElement = insertable;
     }
 
     public void insertSecondName(Element insertable){
-        Element tmp = firstElement.nextSecondName;
+        Element tmp = firstElement;
         if (StringComparator.firstOfTwoStringsIsHigherInAlphabeticalOrder(tmp.secondName.getSecondName(), insertable.secondName.getSecondName())) {
             insertable.nextSecondName = tmp;
             insertable.previousSecondName = firstElement;
@@ -86,16 +95,19 @@ public class StreamList {
     }
 
     public boolean isEmpty() {
-        return firstElement.telephoneNumber == null && firstElement.secondName == null;
+        return firstElement == null;
     }
 
     public void addElement(String name, long number){
         Element element = new Element(name, number);
         if (isEmpty()) {
             firstElement = element;
+            lastElement = element;
         }
-        insertTelephoneNumber(element);
-        insertSecondName(element);
+        else {
+            insertTelephoneNumber(element);
+            insertSecondName(element);
+        }
         size++;
     }
 
