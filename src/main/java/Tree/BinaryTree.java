@@ -1,5 +1,7 @@
 package Tree;
 
+import LinkedList.LinkedList;
+
 public class BinaryTree {
 
     Element root;
@@ -76,5 +78,19 @@ public class BinaryTree {
 
     public void delete(int value) {
         root = deleteRecursive(root, value);
+    }
+
+    public LinkedList<Integer> preorderTraversal(){
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        preorderTraversalInternal(list, root);
+        return list;
+    }
+
+    private void preorderTraversalInternal(LinkedList<Integer> list, Element currentNode){
+        if(currentNode != null) {
+            list.pushFront(currentNode.value);
+            preorderTraversalInternal(list, currentNode.right);
+            preorderTraversalInternal(list, currentNode.left);
+        }
     }
 }
