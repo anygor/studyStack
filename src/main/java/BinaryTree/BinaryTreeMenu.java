@@ -1,4 +1,4 @@
-package Tree;
+package BinaryTree;
 
 import LinkedList.LinkedList;
 import LinkedList.LinkedListHelper;

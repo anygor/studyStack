@@ -2,7 +2,7 @@ import LinkedList.LinkedListMenu;
 import Matrix.MatrixMenu;
 import Queue.QueueMenu;
 import Stack.StackMenu;
-import Tree.BinaryTreeMenu;
+import BinaryTree.BinaryTreeMenu;
 
 import java.util.Scanner;
 

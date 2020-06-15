@@ -1,7 +1,7 @@
 import LinkedList.LinkedList;
 import org.junit.Test;
 
-import Tree.*;
+import BinaryTree.*;
 
 public class TreeTraverseTests {
     private void fillTree(BinaryTree tree){
