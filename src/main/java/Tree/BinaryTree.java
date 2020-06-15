@@ -77,9 +77,4 @@ public class BinaryTree {
     public void delete(int value) {
         root = deleteRecursive(root, value);
     }
-
-    public Element rightTree(){
-        return this.root.right;
-    }
-
 }

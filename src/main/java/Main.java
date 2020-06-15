@@ -2,6 +2,7 @@ import LinkedList.LinkedListMenu;
 import Matrix.MatrixMenu;
 import Queue.QueueMenu;
 import Stack.StackMenu;
+import Tree.BinaryTreeMenu;
 
 import java.util.Scanner;
 
@@ -13,6 +14,7 @@ public class Main {
         System.out.println("3 - Linked List");
         System.out.println("4 - Stream List (tba)");
         System.out.println("5 - Matrix");
+        System.out.println("6 - Binary Tree");
 
         loop:
         while (true) {
@@ -33,6 +35,10 @@ public class Main {
                 }
                 case "5":{
                     MatrixMenu.menu();
+                    break;
+                }
+                case "6":{
+                    BinaryTreeMenu.menu();
                     break;
                 }
                 case "quit":{
