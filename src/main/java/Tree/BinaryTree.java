@@ -1,10 +1,12 @@
+package Tree;
+
 public class BinaryTree {
 
-    Node root;
+    Element root;
 
-    private Node addRecursive(Node current, int value) {
+    private Element addRecursive(Element current, int value) {
         if (current == null) {
-            return new Node(value);
+            return new Element(value);
         }
 
         if (value < current.value) {
@@ -23,21 +25,7 @@ public class BinaryTree {
         root = addRecursive(root, value);
     }
 
-    private BinaryTree createBinaryTree() {
-        BinaryTree bt = new BinaryTree();
-
-        bt.add(6);
-        bt.add(4);
-        bt.add(8);
-        bt.add(3);
-        bt.add(5);
-        bt.add(7);
-        bt.add(9);
-
-        return bt;
-    }
-
-    private boolean containsNodeRecursive(Node current, int value) {
+    private boolean containsNodeRecursive(Element current, int value) {
         if (current == null) {
             return false;
         }
@@ -53,7 +41,7 @@ public class BinaryTree {
         return containsNodeRecursive(root, value);
     }
 
-    private Node deleteRecursive(Node current, int value) {
+    private Element deleteRecursive(Element current, int value) {
         if (current == null) {
             return null;
         }
@@ -82,7 +70,7 @@ public class BinaryTree {
         return current;
     }
 
-    private int findSmallestValue(Node root) {
+    private int findSmallestValue(Element root) {
         return root.left == null ? root.value : findSmallestValue(root.left);
     }
 
@@ -90,7 +78,7 @@ public class BinaryTree {
         root = deleteRecursive(root, value);
     }
 
-    public Node rightTree(){
+    public Element rightTree(){
         return this.root.right;
     }
 
