@@ -3,8 +3,6 @@ import org.junit.Test;
 
 import Tree.*;
 
-import static org.junit.Assert.*;
-
 public class TreeTraverseTests {
     private void fillTree(BinaryTree tree){
         tree.add(5);
@@ -18,7 +16,7 @@ public class TreeTraverseTests {
     public void preorderTraverseTest(){
         BinaryTree tree = new BinaryTree();
         fillTree(tree);
-        LinkedList<Integer> traversetree = tree.preorderTraversal();
+        LinkedList<Integer> traversetree = tree.preOrderTraversal();
         for(int i = 0; traversetree.peekFront() != null; i++){
             System.out.println(traversetree.popFront());
         }

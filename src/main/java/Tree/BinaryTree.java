@@ -80,17 +80,45 @@ public class BinaryTree {
         root = deleteRecursive(root, value);
     }
 
-    public LinkedList<Integer> preorderTraversal(){
+    public LinkedList<Integer> preOrderTraversal(){
         LinkedList<Integer> list = new LinkedList<Integer>();
-        preorderTraversalInternal(list, root);
+        preOrderTraversalInternal(list, root);
         return list;
     }
 
-    private void preorderTraversalInternal(LinkedList<Integer> list, Element currentNode){
+    private void preOrderTraversalInternal(LinkedList<Integer> list, Element currentNode){
         if(currentNode != null) {
             list.pushFront(currentNode.value);
-            preorderTraversalInternal(list, currentNode.right);
-            preorderTraversalInternal(list, currentNode.left);
+            preOrderTraversalInternal(list, currentNode.left);
+            preOrderTraversalInternal(list, currentNode.right);
+        }
+    }
+
+    public LinkedList<Integer> inOrderTraversal(){
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        inOrderTraversalInternal(list, root);
+        return list;
+    }
+
+    private void inOrderTraversalInternal(LinkedList<Integer> list, Element currentNode){
+        if(currentNode != null) {
+            inOrderTraversalInternal(list, currentNode.left);
+            list.pushFront(currentNode.value);
+            inOrderTraversalInternal(list, currentNode.right);
+        }
+    }
+
+    public LinkedList<Integer> postOrderTraversal(){
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        postOrderTraversalInternal(list, root);
+        return list;
+    }
+
+    private void postOrderTraversalInternal(LinkedList<Integer> list, Element currentNode){
+        if(currentNode != null) {
+            postOrderTraversalInternal(list, currentNode.left);
+            postOrderTraversalInternal(list, currentNode.right);
+            list.pushFront(currentNode.value);
         }
     }
 }
