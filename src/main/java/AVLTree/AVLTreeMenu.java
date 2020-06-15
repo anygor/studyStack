@@ -34,6 +34,10 @@ public class AVLTreeMenu {
                     System.out.println("Deletion successfully complete");
                     break;
                 }
+                case "root" : {
+                    System.out.println(tree.getRootKey());
+                    break;
+                }
                 case "quit": {
                     System.out.println("Got it, bye");
                     break loop;
