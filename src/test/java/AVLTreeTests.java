@@ -10,6 +10,12 @@ public class AVLTreeTests {
         tree.add(2);
         tree.add(3);
         tree.add(4);
-        assertEquals(3, tree.getRoot());
+        tree.add(5);
+        tree.add(6);
+        tree.add(7);
+        tree.remove(7);
+        tree.remove(6);
+        tree.remove(5);
+        assertEquals(3, tree.getRootKey());
     }
 }

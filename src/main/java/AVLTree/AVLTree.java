@@ -92,11 +92,15 @@ public class AVLTree {
         return balance(currentRoot);
     }
 
-    public Element remove(int k){
-        return remove(root, k);
+    public void remove(int k){
+        root = remove(root, k);
     }
 
     public Element getRoot() {
         return root;
+    }
+
+    public int getRootKey(){
+        return root.key;
     }
 }
