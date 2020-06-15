@@ -1,5 +1,8 @@
 package Tree;
 
+import LinkedList.LinkedList;
+import LinkedList.LinkedListHelper;
+
 import java.util.Scanner;
 
 public class BinaryTreeMenu {
@@ -39,6 +42,32 @@ public class BinaryTreeMenu {
                         System.out.println("No such element");
                     }
                     break;
+                }
+                case "traverse" : {
+                    System.out.println("Type traverse type - preorder, postorder or inorder");
+                    executableString = scanner.nextLine();
+                    LinkedList list;
+                    switch (executableString){
+                        case "preorder" : {
+                            list = tree.preOrderTraversal();
+                            new LinkedListHelper().printList(list);
+                            break;
+                        }
+                        case "postorder" : {
+                            list = tree.postOrderTraversal();
+                            new LinkedListHelper().printList(list);
+                            break;
+                        }
+                        case "inorder" : {
+                            list = tree.inOrderTraversal();
+                            new LinkedListHelper().printList(list);
+                            break;
+                        }
+                        default:{
+                            System.out.println("Error, traverse type not defined");
+                            break;
+                        }
+                    }
                 }
                 case "quit" : {
                     System.out.println("Got it, bye");
