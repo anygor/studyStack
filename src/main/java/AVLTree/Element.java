@@ -12,12 +12,25 @@ public class Element {
     }
 
     public int balanceFactor(){
-        return right.height - left.height;
+        int rh;
+        int lh;
+        if (right == null) rh = 0;
+        else rh = right.height;
+        if (left == null) lh = 0;
+        else lh = left.height;
+        return rh - lh;
     }
 
     void adjustHeight(){
-        int lh = left.height;
-        int rh = right.height;
+        int lh, rh;
+        if (left == null) {
+            lh = 0;
+        }
+        else lh = left.height;
+        if (right == null) {
+            rh = 0;
+        }
+        else rh = right.height;
         if (lh > rh) {
             height = lh + 1;
         }

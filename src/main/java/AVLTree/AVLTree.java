@@ -38,14 +38,15 @@ public class AVLTree {
         return node;
     }
 
-    public Element add(int k){
-        return add(root, k);
+    public void add(int k){
+        root = add(root, k);
     }
 
     private Element add(Element currentRoot, int k){
         if (currentRoot == null) {
             System.out.println("Tree is not initialized");
-            return null;
+            currentRoot = new Element(k);
+            return currentRoot;
         }
         else if (k < currentRoot.key){
             currentRoot.left = add(currentRoot.left, k);
@@ -89,5 +90,13 @@ public class AVLTree {
             return balance(min);
         }
         return balance(currentRoot);
+    }
+
+    public Element remove(int k){
+        return remove(root, k);
+    }
+
+    public Element getRoot() {
+        return root;
     }
 }
