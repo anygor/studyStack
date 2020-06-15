@@ -1,3 +1,4 @@
+import AVLTree.AVLTreeMenu;
 import LinkedList.LinkedListMenu;
 import Matrix.MatrixMenu;
 import Queue.QueueMenu;
@@ -15,6 +16,7 @@ public class Main {
         System.out.println("4 - Stream List (tba)");
         System.out.println("5 - Matrix");
         System.out.println("6 - Binary Tree");
+        System.out.println("7 - AVL Tree");
 
         loop:
         while (true) {
@@ -39,6 +41,10 @@ public class Main {
                 }
                 case "6":{
                     BinaryTreeMenu.menu();
+                    break;
+                }
+                case "7" :{
+                    AVLTreeMenu.menu();
                     break;
                 }
                 case "quit":{
